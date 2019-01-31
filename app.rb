@@ -5,10 +5,18 @@ get '/' do
   "hello world again"
 end
 
-get '/hello' do
-  "hello 1000!"
-end
+# get '/hello/:name' do
+#   "hello #{params[:name]}"
+# end
 
-get '/hello' do
-  "hello 2"
+# get '/hello/:name' do |name|
+#   "hello #{name}"
+# end
+
+# get '/hello/:fname/:lname' do |f, l|
+#  "hello #{f} #{l}"
+# end
+
+get '/hello/:fname/?:lname?' do |f, l|
+ "hello #{f} #{l}"
 end
