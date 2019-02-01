@@ -11,6 +11,18 @@ ActiveRecord::Base.establish_connection(
   database: './bbs.db'
 )
 
+helpers do
+  def csrf_tag
+    Rack::Csrf.csrf_tag(env)
+  end
+  def csrf_token
+    Rack::Csrf.csrf_token(env)
+  end
+  def h(str)
+    Rack::Utils.escape_html(str)
+  end
+end
+
 class Comment < ActiveRecord::Base
   validates :body, presence: true
 end
