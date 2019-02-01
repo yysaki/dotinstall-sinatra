@@ -1,7 +1,7 @@
 <h1>My BBS</h1>
 <ul>
   <% @comments.each do |comment| %>
-    <li data-id="<%= comment.id %> data-token="<%= Rack::Csrf.csrf_token(env) %>">
+    <li data-id="<%= comment.id %>" data-token="<%= Rack::Csrf.csrf_token(env) %>">
       <%= Rack::Utils.escape_html(comment.body) %>
       <span class="delete">[x]</span>
     </li>
