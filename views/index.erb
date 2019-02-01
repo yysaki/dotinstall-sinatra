@@ -1,8 +1,8 @@
 <h1>My BBS</h1>
 <ul>
-  <li>comment</li>
-  <li>comment</li>
-  <li>comment</li>
+  <% @comments.each do |comment| %>
+    <li><%= comment.body %></li>
+  <% end %>
 </ul>
 <form action="" method="post">
   <input type="text" name="body">
