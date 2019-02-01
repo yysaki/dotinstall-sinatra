@@ -1,6 +1,6 @@
 drop table if exists comments;
 create table comments (
-  id inter primary key,
+  id integer primary key,
   body text
 );
 
