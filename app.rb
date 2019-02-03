@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 require 'rack/csrf'
 
-use Rack::Session::Cookie, secret: "thisissomethingsecret"
+use Rack::Session::Cookie, secret: 'thisissomethingsecret'
 use Rack::Csrf, raise: true
 
 ActiveRecord::Base.establish_connection(
@@ -15,9 +17,11 @@ helpers do
   def csrf_tag
     Rack::Csrf.csrf_tag(env)
   end
+
   def csrf_token
     Rack::Csrf.csrf_token(env)
   end
+
   def h(str)
     Rack::Utils.escape_html(str)
   end
@@ -28,7 +32,7 @@ class Comment < ActiveRecord::Base
 end
 
 get '/' do
-  @title = "My BBS"
+  @title = 'My BBS'
   @comments = Comment.all
   erb :index
 end
